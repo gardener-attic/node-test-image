@@ -1,0 +1,24 @@
+node-test-image:
+  template: 'default'
+  base_definition:
+    repo: ~
+    traits:
+      version:
+        preprocess:
+          'inject-commit-hash'
+        inject_effective_version: true
+      publish:
+        dockerimages:
+          node-test-image:
+            inputs:
+              repos:
+                source: ~ # default
+            registry: 'gcr-readwrite'
+            image: 'eu.gcr.io/gardener-project/gardener/node-test-image'
+  variants:
+    release:
+      traits:
+        version:
+          preprocess: 'finalise'
+        release:
+          nextversion: 'bump_minor'
