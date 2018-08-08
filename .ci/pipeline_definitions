@@ -23,3 +23,7 @@ node-test-image:
         release:
           nextversion: 'bump_minor'
         component_descriptor: ~
+        publish:
+          dockerimages:
+            node-test-image:
+              tag_as_latest: true
