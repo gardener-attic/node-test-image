@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-FROM node:alpine
+FROM node:10.10-alpine
 
 ENV PHANTOMJS_VERSION=2.1.1
 
